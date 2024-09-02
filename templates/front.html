@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>somAlya Chatbot</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-bar {
+            background-color: #e52422;
+            padding: 5px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-bar img {
+            height: 100px;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+
+        .header-bar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 50px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .content {
+            margin-top: 30px;
+        }
+
+        .content h2 {
+            color: #333;
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        .content h2 .red-text {
+            color: #e52422;
+        }
+
+        .start-button {
+            background-color: #e52422;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .start-button:hover {
+            background-color: #c31d1b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-bar">
+        <img src="kjsce.png" alt="Somaiya Vidyavihar University Logo">
+    </div>
+    
+    <div class="container">
+        <div class="content">
+            <h2>Welcome to the <span class="red-text">somAlya</span> Chatbot</h2>
+            <a href="/chatbot" >
+            <button class="start-button" onclick="startChat()">Start Now</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function startChat() {
+            // Functionality to start the chatbot
+            // alert('Starting the chatbot...');
+        }
+    </script>
+</body>
+</html>
