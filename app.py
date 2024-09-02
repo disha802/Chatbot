@@ -65,10 +65,15 @@ def interpret(user_query):
             return "teacher"
     return "general"
 
-# Route to render the chatbot interface
+# Route to render the landing page
 @app.route('/')
-def home():
-    return render_template('chatbot.html')  # Ensure 'chatbot.html' is in the 'templates' folder
+def front():
+    return render_template('front.html')
+
+# Route to render the chatbot interface
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chatbot.html')
 
 # Route to process user queries
 @app.route('/get_response', methods=['POST'])
