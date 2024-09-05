@@ -1,2 +1,7 @@
 Flask
 Gunicorn
+Pandas
+transformers
+scikit-learn 
+nltk
+Model - "Qwen/Qwen-2-1.5b-Instruct
