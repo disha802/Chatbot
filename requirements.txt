@@ -2,3 +2,4 @@ Flask
 Gunicorn
 Pandas
 Transformers
+Nltk
