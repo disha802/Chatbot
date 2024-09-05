@@ -8,7 +8,7 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('front bg.jpg');
+            background-image: url('purple bg.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -35,14 +35,14 @@
         }
 
         .header-bar img {
-        height: 216PX; /* Adjust this if needed */
-        width: 384px; /* Set a specific width for the logo */
-        margin-right: 15px;
-    }
+            height: 216px;
+            width: 384px;
+            margin-right: 15px;
+        }
 
         .container {
             text-align: center;
-            background-color: rgba(10, 0, 0, 0.85); /* Increased transparency */
+            background-color: rgba(10, 0, 0, 0.85);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -63,12 +63,32 @@
         }
 
         .content h2 .red-text {
-            color: #0044cc;
+            color: #6900FF;
             font-weight: bold;
         }
 
-        .start-button {
-            background-color: #0044cc;
+        /* Beautified input */
+        .upload-input {
+            width: 80%;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid #6900FF;
+            font-size: 18px;
+            background-color: #fff;
+            color: #333;
+            margin-bottom: 20px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-input:focus {
+            outline: none;
+            border-color: #0033a0;
+            box-shadow: 0 0 10px rgba(0, 51, 160, 0.3);
+        }
+
+        .upload-button {
+            background-color: #6900FF;
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -80,29 +100,20 @@
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .start-button:hover {
+        .upload-button:hover {
             background-color: #0033a0;
             transform: translateY(-5px);
             box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .start-button:focus {
+        .upload-button:focus {
             outline: none;
             box-shadow: 0 0 10px #0044cc;
         }
 
-        .start-button:active {
+        .upload-button:active {
             transform: translateY(2px);
         }
-
-        .tagline {
-        color: #fcf8f8;
-        font-size: 20px;
-        margin-bottom: 20px;
-        font-weight: 400;
-        letter-spacing: 1.1px;
-        line-height: 1.3;
-    }
 
         @media screen and (max-width: 768px) {
             .content h2 {
@@ -110,7 +121,7 @@
                 letter-spacing: 1px;
             }
 
-            .start-button {
+            .upload-button {
                 font-size: 18px;
                 padding: 12px 24px;
             }
@@ -126,7 +137,7 @@
                 font-size: 28px;
             }
 
-            .start-button {
+            .upload-button {
                 font-size: 16px;
                 padding: 10px 20px;
             }
@@ -135,23 +146,45 @@
 </head>
 <body>
     <div class="header-bar">
-        <img src="saber new logo.png" alt="Somaiya Vidyavihar University Logo" aria-label="University Logo">
+        <img src="purple logo.png" alt="Somaiya Vidyavihar University Logo" aria-label="University Logo">
     </div>
 
     <div class="container">
         <div class="content">
             <h2>Welcome to the <span class="red-text">SABER</span> Chatbot</h2>
-            <!-- <p class="tagline">Your College Companion</p> Added tagline -->
-            <a href="/chatbot">
-                <button class="start-button" onclick="startChat()" aria-label="Start Chatbot">Start Now</button>
-            </a>
+
+            
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="text" name="upload_input" class="upload-input" 
+                       placeholder="Enter link or select a file to upload" id="upload-input">
+                <input type="file" id="file-input" class="upload-input" 
+                       accept=".exe,.pdf,.docx,.pptx,.csv,.mp3,.jpeg,.py,.zip,.svg,.jpg,.png,.txt,.xlsx" 
+                       style="display:none;">
+                <button type="submit" class="upload-button" aria-label="Upload">Upload</button>
+            </form>
         </div>
     </div>
 
     <script>
-        function startChat() {
-            // Functionality to start the chatbot
-        }
+        const uploadInput = document.getElementById('upload-input');
+        const fileInput = document.getElementById('file-input');
+
+        
+        uploadInput.addEventListener('input', function() {
+            fileInput.style.display = 'none';
+        });
+
+        
+        uploadInput.addEventListener('click', function() {
+            fileInput.click();
+        });
+
+        
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                uploadInput.value = fileInput.files[0].name;
+            }
+        });
     </script>
 </body>
 </html>
