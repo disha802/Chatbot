@@ -1,5 +1,6 @@
 Flask
-Gunicorn
-Pandas
-Transformers
-Nltk
+pandas
+transformers
+torch  
+openpyxl
+gunicorn  
